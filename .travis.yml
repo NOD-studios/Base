@@ -1,0 +1,18 @@
+sudo: false
+language: node_js
+before_install:
+- npm install -g npm@'>=1.5.0'
+node_js:
+- '0.10'
+- '0.11'
+- '0.12'
+- iojs
+- '4.0'
+deploy:
+  provider: npm
+  email: hey@nod.st
+  api_key:
+    secure: smrrGCXrmCkbdqMvH86XSkQxfMgkHURgYInYLvCLv1MiRLgsryLGA/moEo8+/yVDZKRxjLJP+rMXWXtB9/VR4vcT3i66DPgSsy/cOT7b6jEeT6Z4cTrjFVOrECdihG7xDRDVRgaxvnCWijNTweqbRL22v0kpMTvtwkV+kQBBy6tuN7UQ9t/80NqcfzfgfqYWSg9zZSJ8AqO6QBFw82gb+k464vvUTcqKEG7c0CLosHVCeXeN7VxcHdsBhDoeIBlBQrZ3BK1ocaHRxoaAEeieRmIsyVWtsAhCbZs+vCvM5fmYeeX74ebT8kVEjLVrsH7fZEIHh+/fENFbg8fZnhM7cuH61+uU0FJMyeJAM22I/h8mR4vS1RiQBsuRVjW42eQhrR9bZ6sZJIhpADRVidCx8gP7xqERs/bKsTDBqi739oOpZfjsF7+qRVn+h3Fq8S7+TBJHpIe1BdtkZTUtOsPADZb3ZNTxXIn6uUrSYGnPkyRhaWI3K7/E80FWzNdpM+x1EmlpNiqhxtu+hxb4W1XH35hhjGbMkH3JWEnllNk/qMKqwxbX94xEvsR5CAcbUt72QMIZdoinpxBeCpk5hJrToGwwUGbOUxSGTZeMJEhaQerPfc+UzSkjDJmyE/XtZz/a61v7W1+rKzHoiKyLhiU/D12yCrfN2NfRy9xbpfqNaXY=
+  on:
+    tags: true
+    repo: NOD-studios/base
