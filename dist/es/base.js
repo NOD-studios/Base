@@ -1,4 +1,5 @@
 import 'source-map-support/register';
+import "babel-polyfill";
 import path from 'path';
 import autobind from 'autobind-decorator';
 import { Console } from '@nod/console';
