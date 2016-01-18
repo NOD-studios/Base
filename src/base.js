@@ -10,11 +10,6 @@ const PROTECTED = Symbol('PROTECTED');
 
 export class Base {
 
-  defaults = {
-    console : new Console({}),
-    config : new Environment({}).config
-  };
-
   get options() {
     return this[PROTECTED].options;
   }
@@ -23,14 +18,14 @@ export class Base {
   @param(optional({}))
   @returns(Object)
   setOptions(options = {}) {
-    return Object.assign(this[PROTECTED].options, this.defaults, options);
+    return Object.assign(this[PROTECTED].options, options);
   }
 
   set options(options = {}) {
     return this.setOptions(options);
   }
 
-  constructor(options = {}) {
+  constructor(options = {}, defaults = {}) {
     Object.defineProperty(this, PROTECTED, {
       enumerable : false,
       value      : {
@@ -38,10 +33,15 @@ export class Base {
       }
     });
 
+    let
+      console = new Console(),
+      config = new Environment().config;
+
+    this.options = defaults;
+    this.options = config;
+    this.options = { console };
     this.options = options;
-    this.options = options.config;
 
     this.options.console.info(`${this.constructor.name}: Initialized.`);
-    return this;
   }
 }
