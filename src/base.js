@@ -2,7 +2,7 @@ import 'source-map-support/register';
 import path from 'path';
 import autobind from 'autobind-decorator';
 import { Console } from '@nod/console';
-import { environment } from '@nod/environment/src/instance';
+import { Environment } from '@nod/environment';
 import { param, returns, Optional as optional } from 'decorate-this';
 
 const PROTECTED = Symbol('PROTECTED');
@@ -10,7 +10,8 @@ const PROTECTED = Symbol('PROTECTED');
 export class Base {
 
   defaults = {
-    console : new Console({})
+    console : new Console({}),
+    config : new Environment({}).config
   };
 
   get options() {
@@ -37,6 +38,7 @@ export class Base {
     });
 
     this.options = options;
+    this.options = options.config;
 
     this.options.console.info(`${this.constructor.name}: Initialized.`);
     return this;
