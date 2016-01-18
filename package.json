@@ -1,6 +1,6 @@
 {
   "name": "@nod/base",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Common base class for NOD studios modules",
   "main": "dist/commonjs/base.js",
   "dependencies": {
