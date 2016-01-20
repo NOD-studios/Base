@@ -37,6 +37,7 @@ export class Base {
       console = new Console(),
       config = new Environment().config;
 
+    defaults.base = defaults.base || this.options;
     this.options = defaults;
     this.options = config;
     this.options = { console };
