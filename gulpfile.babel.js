@@ -146,7 +146,7 @@ gulp.task('build', gulp.series(
 gulp.task('run-instance', gulp.series('build', () => {
   let
     invoked = false,
-    process = childProcess.fork(path.join(paths.dist, 'commonjs', 'instance.js'));
+    process = childProcess.fork(path.join(paths.dist, 'commonjs', 'test.js'));
 
   return new Promise((resolve, reject) => {
 

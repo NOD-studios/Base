@@ -1,8 +1,8 @@
 # @nod/base
 
-A base class for modules of NOD studios
+A configurable base class
 
-Supports ES5, ES7, AMD, CommonJS, System and EcmaScript modules.
+Supports ES5, ES7, AMD, CommonJS, System and EcmaScript modules runs both on browser and server.
 
 [![GitHub tag][tag-image]][tag-url]
 [![Build status][build-image]][build-url]
@@ -10,20 +10,41 @@ Supports ES5, ES7, AMD, CommonJS, System and EcmaScript modules.
 [![Join the chat][gitter-image]][gitter-url]
 
 
-# Usage:
+## Usage:
 
-## Installation:
+### Installation:
 ```
 npm install --save @nod/base
 ```
 
-## Examples:
+### Examples:
 
 ```javascript
 import { Base } from '@nod/base';
 class Example extends Base {
- // do stuff
+ initialize() {
+   // do stuff
+ }
 }
+```
+
+```javascript
+import { Base, Configuration } from '@nod/base';
+
+class ExampleConfiguration extends Configuration {
+  defaultVal = 'example val';  
+}
+
+class Example extends Base {
+   initialize() {
+    this.console.log(this.options.defaultVal);
+    this.console.info(this.options.secondVal);
+   }
+}
+
+let example = new Example(new ExampleConfiguration({
+ secondVal : 'test'
+}));
 ```
 
 ## Build and develop:
@@ -42,11 +63,11 @@ Please check available gulp tasks with:
 gulp -T
 ```
 
-# ToDo:
+## TODO:
 - Gulp tasks as another dependency
 - More detailed docs
 
-# Contact:
+## Support:
 [![Send e-mail][mail-image]][mail-url]
 [![Join the chat][gitter-image]][gitter-url]
 

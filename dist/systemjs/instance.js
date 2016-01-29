@@ -1,17 +1,18 @@
-"use strict";
+'use strict';
 
-System.register(["babel-polyfill", "./base"], function (_export, _context) {
-  var Base, base;
+System.register(['./index'], function (_export, _context) {
+  var Base, Configuration, base;
   return {
-    setters: [function (_babelPolyfill) {}, function (_base) {
-      Base = _base.Base;
+    setters: [function (_index) {
+      Base = _index.Base;
+      Configuration = _index.Configuration;
     }],
     execute: function () {
-      _export("base", base = new Base());
+      _export('base', base = new Base(new Configuration()));
 
-      _export("base", base);
+      _export('base', base);
 
-      _export("default", base);
+      _export('default', base);
     }
   };
 });

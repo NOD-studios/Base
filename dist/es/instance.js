@@ -1,4 +1,4 @@
-import "babel-polyfill";
-import { Base } from './base';
-export let base = new Base();
+import { Base, Configuration } from './index';
+
+export let base = new Base(new Configuration());
 export default base;

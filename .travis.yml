@@ -2,12 +2,20 @@ sudo: false
 language: node_js
 before_install:
 - npm install -g npm@'>=1.5.0'
+- npm --version
+- phantomjs --version
 node_js:
 - '0.10'
 - '0.11'
 - '0.12'
 - iojs
 - '4.0'
+- '5'
+cache:
+  directories:
+    - node_modules
+script:
+  - npm test
 deploy:
   provider: npm
   email: hey@nod.st
